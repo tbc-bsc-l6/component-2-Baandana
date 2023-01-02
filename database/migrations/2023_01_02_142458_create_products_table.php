@@ -12,12 +12,16 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('products', function (Blueprint $table) {
+        $table->id();
+  	    $table->timestamps();
+        $table->string('artist,255');
+  	    $table->string('title,255');
+        $table->unsignedInteger("price");
+      
+    });
+}
 
     /**
      * Reverse the migrations.

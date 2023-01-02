@@ -16,8 +16,12 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
+       
         return [
-            //
-        ];
-    }
+        'artist' => $this->faker->word(),
+        'title' =>  $this->faker->words(3,true),
+        'price'=>rand(100,99),  
+    
+    ];
+}
 }
