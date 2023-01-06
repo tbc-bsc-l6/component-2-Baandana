@@ -15,7 +15,12 @@ class ProductController extends Controller
     public function index()
     {
         //
+
+        //Route::get('/products',[ProductControllers::class,'index']);
+        $products = Product::all()->sortBy('artist');
+        return view('products', ['products' => $products]);
     }
+
 
     /**
      * Show the form for creating a new resource.
