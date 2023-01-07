@@ -6,7 +6,6 @@
 </head>
 <body>
 
-<h1>Final project laravel</h1>
 
 <div class="container">
     <br>
