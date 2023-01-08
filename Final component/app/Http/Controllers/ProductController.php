@@ -39,7 +39,8 @@ class ProductController extends Controller
         //validate user input
         $request->validate([
             'name' => 'required',
-            'detail' => 'required'
+            'detail' => 'required',
+            'price'=>'required'
 
         ]);
 
@@ -83,7 +84,8 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'detail' => 'required'
+            'detail' => 'required',
+            'price'=>'required'
         ]);
         //create a new product in database
         $product->update($request->all());

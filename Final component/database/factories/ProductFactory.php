@@ -18,7 +18,8 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'detail' =>$this->faker->text(200)
+            'detail' =>$this->faker->text(200),
+            'price' =>rand(100,99),
         ];
     }
 }
