@@ -14,7 +14,8 @@ class CdController extends Controller
      */
     public function index()
     {
-        //
+        $cds = Cd::latest()->paginate(5);
+        return view('cds.index',compact('cds'))->with(request()->input('page'));
     }
 
     /**
@@ -59,7 +60,7 @@ class CdController extends Controller
      */
     public function show(Cd $cd)
     {
-        //
+        return view('cds.show', compact('cd'));
     }
 
     /**
