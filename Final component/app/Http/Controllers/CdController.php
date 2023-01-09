@@ -104,6 +104,11 @@ class CdController extends Controller
      */
     public function destroy(Cd $cd)
     {
-        //
+        //delete the cd
+        $cd->delete();
+
+
+        //redirect the user and display a success message
+        return redirect()->route('cds.index')->with('success', 'Cd deleted successfully');
     }
 }
