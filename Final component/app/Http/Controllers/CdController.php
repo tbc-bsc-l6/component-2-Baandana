@@ -35,7 +35,20 @@ class CdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate user input
+        $request->validate([
+            'artist' => 'required',
+            'title' => 'required',
+            'duration' => 'required',
+            'price'=>'required'
+
+        ]);
+
+        //create a new Cd in the database
+        Cd::create($request->all());
+
+        //redirect the user and send friendly message
+        return redirect()->route('cds.index')->with('success', 'Cd created successfully');
     }
 
     /**

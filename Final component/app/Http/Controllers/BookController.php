@@ -35,7 +35,20 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         //validate user input
+         $request->validate([
+            'author' => 'required',
+            'title' => 'required',
+            'pages' => 'required',
+            'price'=>'required'
+
+        ]);
+
+        //create a new book in the database
+        Book::create($request->all());
+
+        //redirect the user and send friendly message
+        return redirect()->route('books.index')->with('success', 'Book created successfully');
     }
 
     /**

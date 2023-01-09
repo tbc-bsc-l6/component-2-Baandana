@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Cd extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'artist',
+        'title',
+        'duration',
+        'price',
+    ];
 }
