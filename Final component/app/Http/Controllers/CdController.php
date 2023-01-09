@@ -71,7 +71,7 @@ class CdController extends Controller
      */
     public function edit(Cd $cd)
     {
-        //
+        return view('cds.edit',compact('cd'));
     }
 
     /**
@@ -83,7 +83,17 @@ class CdController extends Controller
      */
     public function update(Request $request, Cd $cd)
     {
-        //
+        $request->validate([
+            'artist' => 'required',
+            'title' => 'required',
+            'duration' => 'required',
+            'price'=>'required'
+        ]);
+        //create a new cd in database
+        $cd->update($request->all());
+
+        //redirect the user and send friendly message
+        return redirect()->route('cds.index')->with('success', 'Cd updated successfully');
     }
 
     /**

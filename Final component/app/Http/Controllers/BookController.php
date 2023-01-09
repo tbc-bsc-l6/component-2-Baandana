@@ -71,7 +71,7 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        return view('books.edit',compact('book'));
     }
 
     /**
@@ -83,7 +83,17 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        $request->validate([
+            'author' => 'required',
+            'title' => 'required',
+            'pages' => 'required',
+            'price'=>'required'
+        ]);
+        //create a new book in database
+        $book->update($request->all());
+
+        //redirect the user and send friendly message
+        return redirect()->route('books.index')->with('success', 'Book updated successfully');
     }
 
     /**
