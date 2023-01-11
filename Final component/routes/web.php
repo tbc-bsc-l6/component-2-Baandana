@@ -23,3 +23,6 @@ Route::get('/', function () {
 Route::resource('books', BookController::class);
 Route::resource('cds', CdController::class);
 Route::resource('games', GameController::class);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
