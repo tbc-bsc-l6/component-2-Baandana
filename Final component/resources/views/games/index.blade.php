@@ -8,6 +8,8 @@
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('games.create') }}"> Create New Game</a>
+                <a class="btn btn-info" href="{{ route('cds.index') }}"> Cds</a>
+                <a class="btn btn-info" href="{{ route('books.index') }}"> Books</a>
             </div>
         </div>
     </div>
