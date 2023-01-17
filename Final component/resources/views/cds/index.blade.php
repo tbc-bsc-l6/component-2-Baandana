@@ -7,9 +7,12 @@
                 <h2> Cds section</h2>
             </div>
             <div class="pull-right">
+                @can('administrator')
                 <a class="btn btn-success" href="{{ route('cds.create') }}"> Create New Cd</a>
+                @endcan
                 <a class="btn btn-info" href="{{ route('games.index') }}"> Games</a>
                 <a class="btn btn-info" href="{{ route('books.index') }}"> Books</a>
+                <a class="btn btn-primary" href="{{ route('home') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -38,6 +41,7 @@
             <td>{{ $cd->price }}</td>
 
             <td>
+                @can('administrator')
                 <form action="{{ route('cds.destroy',$cd->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('cds.show',$cd->id) }}">Show</a>
                     <a class="btn btn-primary" href="{{ route('cds.edit',$cd->id) }}">Edit</a>
@@ -47,6 +51,7 @@
                 </form>
             </td>
         </tr>
+        @endcan
         @endforeach
 
     </table>

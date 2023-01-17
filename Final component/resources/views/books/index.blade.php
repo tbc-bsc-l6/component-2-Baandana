@@ -7,9 +7,12 @@
                 <h2> Books section</h2>
             </div>
             <div class="pull-right">
+                @can('administrator')
                 <a class="btn btn-success" href="{{ route('books.create') }}"> Create New Book</a>
+                @endcan
                 <a class="btn btn-info" href="{{ route('cds.index') }}"> Cds</a>
                 <a class="btn btn-info" href="{{ route('games.index') }}"> Games</a>
+                <a class="btn btn-primary" href="{{ route('home') }}"> Back</a>
             </div>
         </div>
     </div>
@@ -22,6 +25,7 @@
 
     <table class="table table-bordered">
         <tr>
+           
             <th>ID</th>
             <th>Author</th>
             <th>Title</th>
@@ -38,6 +42,7 @@
             <td>{{ $book->price }}</td>
 
             <td>
+                @can('administrator')
                 <form action="{{ route('books.destroy',$book->id) }}" method="POST">
                     <a class="btn btn-info" href="{{ route('books.show',$book->id) }}">Show</a>
                     <a class="btn btn-primary" href="{{ route('books.edit',$book->id) }}">Edit</a>
@@ -47,7 +52,9 @@
                 </form>
             </td>
         </tr>
+        @endcan
         @endforeach
+        
 
     </table>
     {{ $books->links() }}

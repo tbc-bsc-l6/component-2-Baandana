@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <a class="btn btn-success" href="{{ route('books.index') }}"> All products</a>
                 </div>
             </div>
         </div>
