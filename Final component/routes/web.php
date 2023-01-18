@@ -4,6 +4,8 @@ use App\Http\Controllers\CdController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GameController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +26,6 @@ Route::resource('books', BookController::class);
 Route::resource('cds', CdController::class);
 Route::resource('games', GameController::class);
 Auth::routes();
+Route::get("/",[PageController::class,"index"]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
